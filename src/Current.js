@@ -2,16 +2,14 @@ import React from "react";
 
 import "./Current.css";
 
-export default function Current() {
-  let currentWeather = {
-    temp: 18,
-    humid: 50,
-    wind: 3,
-  };
+export default function Current(props) {
+  let currentTemp = Math.round(props.temperature);
+  let currentHumidity = Math.round(props.humidity);
+  let currentWind = Math.round(props.wind);
   return (
     <div className="Current">
       <div className="current-temp">
-        <span className="unit">{currentWeather.temp}°C</span>
+        <span className="unit">{currentTemp}°C</span>
       </div>
       <div className="big-circle">
         <span className="gradient-overlay">
@@ -21,8 +19,8 @@ export default function Current() {
 
       <div>
         <ul>
-          <li>Humid: {currentWeather.humid}%</li>
-          <li>Wind: {currentWeather.wind}km/h</li>
+          <li>Humid: {currentHumidity}%</li>
+          <li>Wind: {currentWind}km/h</li>
         </ul>
       </div>
     </div>

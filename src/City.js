@@ -2,17 +2,16 @@ import React from "react";
 
 import "./City.css";
 
-export default function City() {
-  let localData = {
-    city: "London",
-    date: "Monday 10:00",
-    condition: "Light Rain",
-  };
+export default function City(props) {
+  let citySearched = props.city;
+  let currentCondition = props.description;
+  console.log(props.description);
+
   return (
     <div calssName="City">
-      <div className="city-name">{localData.city}</div>
-      <div className="local-date">{localData.date}</div>
-      <div className="condition">{localData.condition}</div>
+      <div className="city-name">{citySearched}</div>
+      <div className="local-date">Monday 10:00</div>
+      <div className="condition">{currentCondition}</div>
     </div>
   );
 }
