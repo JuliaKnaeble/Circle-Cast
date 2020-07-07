@@ -1,0 +1,45 @@
+.city-name,
+.local-date,
+.condition {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.condition,
+.local-date {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.11px;
+  text-transform: capitalize;
+  color: #465866;
+  height: 24px;
+}
+
+.condition {
+  margin-bottom: 20px;
+}
+
+.city-name {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 3.25rem;
+  letter-spacing: -0.11px;
+  text-transform: capitalize;
+  color: #465866;
+  height: 78px;
+}
+
+@media (max-width: 675px) {
+  .city-name {
+    font-size: 2.25rem;
+    height: 55px;
+    margin: 0;
+  }
+
+  .condition,
+  .local-date {
+    font-size: 1rem;
+    height: 20px;
+  }
+}

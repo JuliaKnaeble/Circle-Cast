@@ -1,0 +1,40 @@
+footer {
+  font-weight: 400;
+  font-size: 12px;
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  color: #465866;
+  text-align: center;
+}
+
+footer a {
+  font-weight: 600;
+  color: rgb(23, 141, 141);
+  font-size: 12px;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+/* Error Text */
+.error {
+  text-align: center;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -0.11px;
+  color: #465866;
+}
+
+@media (max-width: 1000px) {
+  .error {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 675px) {
+  .error {
+    font-size: 1.25rem;
+  }
+}
