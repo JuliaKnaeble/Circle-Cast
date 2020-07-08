@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import City from "./City";
 import Current from "./Current";
+import Forecast from "./Forecast";
 import "./Header.css";
 
 export default function Header() {
@@ -9,7 +10,6 @@ export default function Header() {
   const [weather, setWeather] = useState({});
 
   function showWeather(response) {
-    console.log(response.data);
     setWeather({
       city: response.data.name,
       description: response.data.weather[0].description,
@@ -17,6 +17,8 @@ export default function Header() {
       //icon: response.data.weather[0].icon,
       humid: response.data.main.humidity,
       wind: response.data.wind.speed,
+      latitude: response.data.coord.lat,
+      longitude: response.data.coord.lon,
     });
   }
 
@@ -68,6 +70,7 @@ export default function Header() {
         humidity={weather.humid}
         wind={weather.wind}
       />
+      <Forecast latitude={weather.latitude} longitude={weather.longitude} />
     </div>
   );
 }

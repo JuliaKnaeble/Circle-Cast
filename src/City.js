@@ -5,7 +5,6 @@ import "./City.css";
 export default function City(props) {
   let citySearched = props.city;
   let currentCondition = props.description;
-  console.log(props.description);
 
   return (
     <div calssName="City">

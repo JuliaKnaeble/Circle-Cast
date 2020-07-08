@@ -6,6 +6,7 @@ export default function Current(props) {
   let currentTemp = Math.round(props.temperature);
   let currentHumidity = Math.round(props.humidity);
   let currentWind = Math.round(props.wind);
+
   return (
     <div className="Current">
       <div className="current-temp">
