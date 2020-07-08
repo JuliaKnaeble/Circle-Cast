@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import "./Forecast.css";
+import ForecastPreview from "./ForecastPreview";
 
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false);
@@ -16,138 +17,43 @@ export default function Forecast(props) {
   }
 
   if (loaded && props.latitude === forecast.lat) {
-    let forecastData = {
-      day: "Mon",
-      max: 20,
-      min: 14,
-    };
     return (
       <div className="forecast-flax-wrapper forecast-scroll">
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecast.daily[0].temp.max}C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
-
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecastData.max}°C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
-
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecastData.max}°C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
-
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecastData.max}°C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
-
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecastData.max}°C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
-
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecastData.max}°C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
-
-        <div className="forecast">
-          <div className="small-circle">
-            <span className="gradient-overlay-small">
-              <img
-                src="asset/01d.png"
-                alt=""
-                className="condition-icon-small"
-              />
-            </span>
-          </div>
-          <p className="day-future">{forecastData.day}</p>
-          <p className="temp-future">
-            <span className="unit">{forecastData.max}°C</span> |{" "}
-            <span className="future-low-temp" />
-            <span className="future-low-temp unit">{forecastData.min}°C</span>
-          </p>
-        </div>
+        <ForecastPreview
+          max={forecast.daily[0].temp.max}
+          min={forecast.daily[0].temp.min}
+          //icon={forecast.daily[0].weather[0].icon}
+        />
+        <ForecastPreview
+          max={forecast.daily[1].temp.max}
+          min={forecast.daily[1].temp.min}
+          //icon={forecast.daily[1].weather[0].icon}
+        />
+        <ForecastPreview
+          max={forecast.daily[2].temp.max}
+          min={forecast.daily[2].temp.min}
+          //icon={forecast.daily[2].weather[0].icon}
+        />
+        <ForecastPreview
+          max={forecast.daily[3].temp.max}
+          min={forecast.daily[3].temp.min}
+          //icon={forecast.daily[3].weather[0].icon}
+        />
+        <ForecastPreview
+          max={forecast.daily[4].temp.max}
+          min={forecast.daily[4].temp.min}
+          //icon={forecast.daily[4].weather[0].icon}
+        />
+        <ForecastPreview
+          max={forecast.daily[5].temp.max}
+          min={forecast.daily[5].temp.min}
+          //icon={forecast.daily[5].weather[0].icon}
+        />
+        <ForecastPreview
+          max={forecast.daily[6].temp.max}
+          min={forecast.daily[6].temp.min}
+          //icon={forecast.daily[6].weather[0].icon}
+        />
       </div>
     );
   } else {
