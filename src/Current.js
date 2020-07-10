@@ -14,7 +14,11 @@ export default function Current(props) {
       </div>
       <div className="big-circle">
         <span className="gradient-overlay">
-          <img src="asset/01d.png" alt="" className="condition-icon" />
+          <img
+            src={require(`./Assets/${props.icon}.png`)}
+            alt=""
+            className="condition-icon"
+          />
         </span>
       </div>
 

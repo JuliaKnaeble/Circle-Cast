@@ -9,7 +9,11 @@ export default function ForecastPreview(props) {
     <div className="forecast">
       <div className="small-circle">
         <span className="gradient-overlay-small">
-          <img src="/asset/04d.png" alt="" className="condition-icon-small" />
+          <img
+            src={require(`./Assets/${props.icon}.png`)}
+            alt=""
+            className="condition-icon-small"
+          />
         </span>
       </div>
       <p className="day-future">{forecastData.day}</p>

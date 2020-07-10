@@ -21,37 +21,37 @@ export default function Forecast(props) {
         <ForecastPreview
           max={forecast.daily[0].temp.max}
           min={forecast.daily[0].temp.min}
-          //icon={forecast.daily[0].weather[0].icon}
+          icon={forecast.daily[0].weather[0].icon}
         />
         <ForecastPreview
           max={forecast.daily[1].temp.max}
           min={forecast.daily[1].temp.min}
-          //icon={forecast.daily[1].weather[0].icon}
+          icon={forecast.daily[1].weather[0].icon}
         />
         <ForecastPreview
           max={forecast.daily[2].temp.max}
           min={forecast.daily[2].temp.min}
-          //icon={forecast.daily[2].weather[0].icon}
+          icon={forecast.daily[2].weather[0].icon}
         />
         <ForecastPreview
           max={forecast.daily[3].temp.max}
           min={forecast.daily[3].temp.min}
-          //icon={forecast.daily[3].weather[0].icon}
+          icon={forecast.daily[3].weather[0].icon}
         />
         <ForecastPreview
           max={forecast.daily[4].temp.max}
           min={forecast.daily[4].temp.min}
-          //icon={forecast.daily[4].weather[0].icon}
+          icon={forecast.daily[4].weather[0].icon}
         />
         <ForecastPreview
           max={forecast.daily[5].temp.max}
           min={forecast.daily[5].temp.min}
-          //icon={forecast.daily[5].weather[0].icon}
+          icon={forecast.daily[5].weather[0].icon}
         />
         <ForecastPreview
           max={forecast.daily[6].temp.max}
           min={forecast.daily[6].temp.min}
-          //icon={forecast.daily[6].weather[0].icon}
+          icon={forecast.daily[6].weather[0].icon}
         />
       </div>
     );

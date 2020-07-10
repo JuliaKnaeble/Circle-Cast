@@ -15,7 +15,7 @@ export default function Header(props) {
       city: response.data.name,
       description: response.data.weather[0].description,
       temp: response.data.main.temp,
-      //icon: response.data.weather[0].icon,
+      icon: response.data.weather[0].icon,
       humid: response.data.main.humidity,
       wind: response.data.wind.speed,
       latitude: response.data.coord.lat,
@@ -75,6 +75,7 @@ export default function Header(props) {
           temperature={weather.temp}
           humidity={weather.humid}
           wind={weather.wind}
+          icon={weather.icon}
         />
         <Forecast latitude={weather.latitude} longitude={weather.longitude} />
       </div>
