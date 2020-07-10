@@ -12,7 +12,6 @@ export default function Forecast(props) {
 
   function showForecast(response) {
     setForecast(response.data);
-    console.log(response.data);
     setLoaded(true);
   }
 

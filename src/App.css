@@ -1,4 +1,5 @@
 .App {
+  min-height: 100vh;
   background-color: #fcfeff;
   font-family: "Montserrat", sans-serif;
   padding-top: 25px;

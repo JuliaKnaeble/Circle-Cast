@@ -7,7 +7,7 @@ export default function City(props) {
   let currentCondition = props.description;
 
   return (
-    <div calssName="City">
+    <div className="City">
       <div className="city-name">{citySearched}</div>
       <div className="local-date">Monday 10:00</div>
       <div className="condition">{currentCondition}</div>
