@@ -50,7 +50,7 @@ ul {
 
 .condition-icon {
   position: relative;
-  top: 102px;
+  top: 120px;
   left: 100px;
   width: 100px;
   height: 100px;
@@ -67,7 +67,7 @@ ul {
     width: 130px;
   }
   .condition-icon {
-    top: 70px;
+    top: 80px;
     left: 70px;
     width: 62px;
     height: 62px;

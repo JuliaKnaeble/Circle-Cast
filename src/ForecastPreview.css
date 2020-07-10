@@ -48,8 +48,8 @@
 
 .condition-icon-small {
   position: relative;
-  top: 62px;
-  left: 55px;
+  top: 70px;
+  left: 58px;
   width: 40px;
   height: 40px;
 }
@@ -60,7 +60,7 @@
     height: 90px;
   }
   .condition-icon-small {
-    top: 50px;
+    top: 60px;
     left: 50px;
   }
 }
@@ -71,7 +71,7 @@
     height: 60px;
   }
   .condition-icon-small {
-    top: 30px;
+    top: 36px;
     left: 32px;
     width: 30px;
     height: 30px;
@@ -98,8 +98,8 @@
     height: 45px;
   }
   .condition-icon-small {
-    top: 27px;
-    left: 25px;
+    top: 28px;
+    left: 28px;
     width: 19px;
     height: 19px;
   }
