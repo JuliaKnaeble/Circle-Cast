@@ -8,6 +8,11 @@ import "./Header.css";
 export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
+  const [timezone, setTimezone] = useState("");
+
+  function showTimezone(response) {
+    setTimezone(response.data.timezone);
+  }
 
   function showWeather(response) {
     setWeather({
@@ -21,6 +26,15 @@ export default function Header(props) {
       latitude: response.data.coord.lat,
       longitude: response.data.coord.lon,
     });
+    let latitude = response.data.coord.lat;
+    let longitude = response.data.coord.lon;
+    let apiKeyWeather = `e4d700d9f2e204bb797d9166314fc0ba`;
+    let weatherForecastUrl = `https://api.openweathermap.org/data/2.5/onecall`;
+    axios
+      .get(
+        `${weatherForecastUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKeyWeather}&units=metric`
+      )
+      .then(showTimezone);
   }
 
   function search() {
@@ -70,7 +84,11 @@ export default function Header(props) {
             </a>
           </div>
         </div>
-        <City city={weather.city} description={weather.description} />
+        <City
+          city={weather.city}
+          description={weather.description}
+          area={timezone}
+        />
         <Current
           temperature={weather.temp}
           humidity={weather.humid}
@@ -82,6 +100,6 @@ export default function Header(props) {
     );
   } else {
     search();
-    return "Loading..";
+    return "Loading...";
   }
 }
