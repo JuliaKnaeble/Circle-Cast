@@ -32,21 +32,21 @@ export default function City(props) {
     let offset = parseInt(response.data.utc_offset);
     let totalHour = inte + offset;
     if (totalHour >= 24) {
-      totalHour = totalHour - 24;
+      return totalHour - 24;
     } else if (totalHour < 0) {
       totalHour += 24;
     } else if (totalHour === 0) {
       totalHour = `00`;
     } else if (totalHour < 10) {
       totalHour = `0${totalHour}`;
-    } else totalHour = totalHour;
+    } else totalHour = inte + offset;
     setHour(totalHour);
     let minute = date.getMinutes();
     if (minute === 0) {
       minute = `00`;
     } else if (minute < 10) {
       minute = `0${minute}`;
-    } else minute = minute;
+    } else minute = date.getMinutes();
     setMinute(minute);
   }
 
