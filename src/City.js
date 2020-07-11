@@ -14,15 +14,15 @@ export default function City(props) {
 
   function showTime(response) {
     console.log(response.data);
-    let days = [
-      `Sunday`,
-      `Monday`,
-      `Tuesday`,
-      `Wednesday`,
-      `Thursday`,
-      `Friday`,
-      `Saturday`,
-    ];
+    //let days = [
+    // `Sunday`,
+    // `Monday`,
+    //`Tuesday`,
+    // `Wednesday`,
+    //`Thursday`,
+    // `Friday`,
+    // `Saturday`,
+    //];
     setDay(response.data.day_of_week);
   }
 
