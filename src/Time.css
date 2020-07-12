@@ -1,0 +1,21 @@
+.local-date {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.local-date {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: -0.11px;
+  text-transform: capitalize;
+  color: #465866;
+  height: 24px;
+}
+
+@media (max-width: 675px) {
+  .local-date {
+    font-size: 1rem;
+    height: 20px;
+  }
+}
