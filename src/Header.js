@@ -95,7 +95,11 @@ export default function Header(props) {
           wind={weather.wind}
           icon={weather.icon}
         />
-        <Forecast latitude={weather.latitude} longitude={weather.longitude} />
+        <Forecast
+          latitude={weather.latitude}
+          longitude={weather.longitude}
+          area={timezone}
+        />
       </div>
     );
   } else {

@@ -2,6 +2,22 @@ import React from "react";
 import "./ForecastPreview.css";
 
 export default function ForecastPreview(props) {
+  let days = [
+    `Sun`,
+    `Mon`,
+    `Tue`,
+    `Wed`,
+    `Thu`,
+    `Fri`,
+    `Sat`,
+    `Sun`,
+    `Mon`,
+    `Tue`,
+    `Wed`,
+    `Thu`,
+  ];
+  let newDay = days[props.day];
+
   let newColor = props.max;
   if (newColor >= 44) {
     newColor = { backgroundColor: `#801109` };
@@ -45,9 +61,6 @@ export default function ForecastPreview(props) {
     newColor = { backgroundColor: `#2306AA` };
   }
 
-  let forecastData = {
-    day: "Mon",
-  };
   return (
     <div className="forecast">
       <div className="small-circle" style={newColor}>
@@ -59,7 +72,7 @@ export default function ForecastPreview(props) {
           />
         </span>
       </div>
-      <p className="day-future">{forecastData.day}</p>
+      <p className="day-future">{newDay}</p>
       <p className="temp-future">
         <span className="unit">{Math.round(props.max)}C</span> |{" "}
         <span className="future-low-temp" />
