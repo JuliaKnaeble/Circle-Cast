@@ -20,7 +20,8 @@ export default function Forecast(props) {
 
   function showForecast(response) {
     setForecast(response.data);
-    setLoaded(true);
+    let timeUrl = `https://worldtimeapi.org/api/timezone/`;
+    axios.get(`${timeUrl}${timezone}`).then(showTime);
   }
 
   if (loaded && props.latitude === forecast.lat) {
@@ -73,13 +74,11 @@ export default function Forecast(props) {
   } else {
     let apiKeyWeather = `e4d700d9f2e204bb797d9166314fc0ba`;
     let weatherForecastUrl = `https://api.openweathermap.org/data/2.5/onecall`;
-    let timeUrl = `https://worldtimeapi.org/api/timezone/`;
     axios
       .get(
         `${weatherForecastUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKeyWeather}&units=metric`
       )
       .then(showForecast);
-    axios.get(`${timeUrl}${timezone}`).then(showTime);
     return null;
   }
 }
