@@ -9,9 +9,35 @@ export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
   const [timezone, setTimezone] = useState("");
+  const [day, setDay] = useState("");
+  const [hour, setHour] = useState({ ready: false });
+
+  function showTime(response) {
+    setDay(response.data.day_of_week);
+    let date = new Date();
+    let hours = date.getUTCHours();
+    let inte = parseInt(hours);
+    let offset = parseInt(response.data.utc_offset);
+    let totalHour = inte + offset;
+    if (totalHour >= 24) {
+      return totalHour - 24;
+    } else if (totalHour < 0) {
+      totalHour += 24;
+    } else if (totalHour === 0) {
+      totalHour = `00`;
+    } else if (totalHour < 10) {
+      totalHour = `0${totalHour}`;
+    } else totalHour = inte + offset;
+    setHour({
+      ready: true,
+      hourSet: totalHour,
+    });
+  }
 
   function showTimezone(response) {
     setTimezone(response.data.timezone);
+    let timeUrl = `https://worldtimeapi.org/api/timezone/`;
+    axios.get(`${timeUrl}${timezone}`).then(showTime);
   }
 
   function showWeather(response) {
@@ -52,7 +78,7 @@ export default function Header(props) {
     setCity(event.target.value);
   }
 
-  if (weather.ready) {
+  if (weather.ready && hour.ready) {
     return (
       <div>
         <div className="Header">
@@ -87,7 +113,8 @@ export default function Header(props) {
         <City
           city={weather.city}
           description={weather.description}
-          area={timezone}
+          dayOfWeek={day}
+          fullHour={hour}
         />
         <Current
           temperature={weather.temp}
@@ -98,7 +125,7 @@ export default function Header(props) {
         <Forecast
           latitude={weather.latitude}
           longitude={weather.longitude}
-          area={timezone}
+          dayOfWeek={day}
         />
       </div>
     );
