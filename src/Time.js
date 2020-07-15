@@ -13,9 +13,6 @@ export default function Time(props) {
   } else minute = date.getMinutes();
   setMinute(minute);
 
-  let hour = props.hour;
-  let day = props.day;
-
   let days = [
     `Sunday`,
     `Monday`,
@@ -26,12 +23,12 @@ export default function Time(props) {
     `Saturday`,
   ];
   let newDay = days[props.day];
-}
 
-return (
-  <div>
-    <div className="local-date">
-      {newDay} {hour}:{minute}
+  return (
+    <div>
+      <div className="local-date">
+        {newDay} {props.hour}:{minute}
+      </div>
     </div>
-  </div>
-);
+  );
+}

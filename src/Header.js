@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import City from "./City";
 import Current from "./Current";
-import Forecast from "./Forecast";
+import ForecastPreview from "./ForecastPreview";
 import "./Header.css";
 
 export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
   const [timezone, setTimezone] = useState("");
-  const [day, setDay] = useState("");
+  const [day, setDay] = useState(null);
   const [hour, setHour] = useState({ ready: false });
+  const [forecast, setForecast] = useState(null);
 
   function showTime(response) {
     setDay(response.data.day_of_week);
@@ -34,7 +35,8 @@ export default function Header(props) {
     });
   }
 
-  function showTimezone(response) {
+  function showForecast(response) {
+    setForecast(response.data);
     setTimezone(response.data.timezone);
     let timeUrl = `https://worldtimeapi.org/api/timezone/`;
     axios.get(`${timeUrl}${timezone}`).then(showTime);
@@ -60,7 +62,7 @@ export default function Header(props) {
       .get(
         `${weatherForecastUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKeyWeather}&units=metric`
       )
-      .then(showTimezone);
+      .then(showForecast);
   }
 
   function search() {
@@ -114,7 +116,7 @@ export default function Header(props) {
           city={weather.city}
           description={weather.description}
           dayOfWeek={day}
-          fullHour={hour}
+          fullHour={hour.hourSet}
         />
         <Current
           temperature={weather.temp}
@@ -122,11 +124,50 @@ export default function Header(props) {
           wind={weather.wind}
           icon={weather.icon}
         />
-        <Forecast
-          latitude={weather.latitude}
-          longitude={weather.longitude}
-          dayOfWeek={day}
-        />
+        <div className="forecast-flax-wrapper forecast-scroll">
+          <ForecastPreview
+            max={forecast.daily[0].temp.max}
+            min={forecast.daily[0].temp.min}
+            icon={forecast.daily[0].weather[0].icon}
+            day={day}
+          />
+          <ForecastPreview
+            max={forecast.daily[1].temp.max}
+            min={forecast.daily[1].temp.min}
+            icon={forecast.daily[1].weather[0].icon}
+            day={day + 1}
+          />
+          <ForecastPreview
+            max={forecast.daily[2].temp.max}
+            min={forecast.daily[2].temp.min}
+            icon={forecast.daily[2].weather[0].icon}
+            day={day + 2}
+          />
+          <ForecastPreview
+            max={forecast.daily[3].temp.max}
+            min={forecast.daily[3].temp.min}
+            icon={forecast.daily[3].weather[0].icon}
+            day={day + 3}
+          />
+          <ForecastPreview
+            max={forecast.daily[4].temp.max}
+            min={forecast.daily[4].temp.min}
+            icon={forecast.daily[4].weather[0].icon}
+            day={day + 4}
+          />
+          <ForecastPreview
+            max={forecast.daily[5].temp.max}
+            min={forecast.daily[5].temp.min}
+            icon={forecast.daily[5].weather[0].icon}
+            day={day + 5}
+          />
+          <ForecastPreview
+            max={forecast.daily[6].temp.max}
+            min={forecast.daily[6].temp.min}
+            icon={forecast.daily[6].weather[0].icon}
+            day={day + 6}
+          />
+        </div>
       </div>
     );
   } else {
