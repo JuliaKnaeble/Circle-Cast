@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Forecast.css";
 import ForecastPreview from "./ForecastPreview";
 
-export default function Forecast(props) {
+const Forecast = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
   let latitude = props.latitude;
@@ -65,4 +65,6 @@ export default function Forecast(props) {
       .then(showForecast);
     return null;
   }
-}
+};
+
+export default Forecast;

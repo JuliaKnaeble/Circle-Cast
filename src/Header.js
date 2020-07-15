@@ -5,7 +5,7 @@ import Current from "./Current";
 import Forecast from "./Forecast";
 import "./Header.css";
 
-export default function Header(props) {
+const Header = (props) => {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({ ready: false });
   const [timezone, setTimezone] = useState("");
@@ -28,7 +28,7 @@ export default function Header(props) {
     });
     let latitude = response.data.coord.lat;
     let longitude = response.data.coord.lon;
-    let apiKeyWeather = `e4d700d9f2e204bb797d9166314fc0ba`;
+    let apiKeyWeather = `a785b12636ed229463fa77e0a6deb5be`;
     let weatherForecastUrl = `https://api.openweathermap.org/data/2.5/onecall`;
     axios
       .get(
@@ -38,7 +38,7 @@ export default function Header(props) {
   }
 
   function search() {
-    let apiKey = `e4d700d9f2e204bb797d9166314fc0ba`;
+    let apiKey = `a785b12636ed229463fa77e0a6deb5be`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(showWeather);
   }
@@ -102,4 +102,6 @@ export default function Header(props) {
     search();
     return "Loading...";
   }
-}
+};
+
+export default Header;

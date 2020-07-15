@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./Time.css";
 
-export default function Time(props) {
+const Time = (props) => {
   const [day, setDay] = useState(`Monday`);
   const [hour, setHour] = useState(`00`);
   const [minute, setMinute] = useState(`00`);
@@ -56,4 +56,6 @@ export default function Time(props) {
       </div>
     </div>
   );
-}
+};
+
+export default Time;

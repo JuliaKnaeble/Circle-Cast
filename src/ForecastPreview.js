@@ -1,7 +1,7 @@
 import React from "react";
 import "./ForecastPreview.css";
 
-export default function ForecastPreview(props) {
+const ForecastPreview = (props) => {
   let newColor = props.max;
   if (newColor >= 44) {
     newColor = { backgroundColor: `#801109` };
@@ -67,4 +67,6 @@ export default function ForecastPreview(props) {
       </p>
     </div>
   );
-}
+};
+
+export default ForecastPreview;
