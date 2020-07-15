@@ -5,12 +5,15 @@ import "./Time.css";
 export default function Time(props) {
   const [minute, setMinute] = useState(`00`);
 
-  let minute = date.getMinutes();
-  if (minute === 0) {
-    minute = `00`;
-  } else if (minute < 10) {
-    minute = `0${minute}`;
-  } else minute = date.getMinutes();
+  let hour = props.hour;
+
+  let date = new Date();
+  let minutes = date.getMinutes();
+  if (minutes === 0) {
+    minutes = `00`;
+  } else if (minutes < 10) {
+    minutes = `0${minutes}`;
+  } else minutes = date.getMinutes();
   setMinute(minute);
 
   let days = [
@@ -27,7 +30,7 @@ export default function Time(props) {
   return (
     <div>
       <div className="local-date">
-        {newDay} {props.hour}:{minute}
+        {newDay} {hour}:{minute}
       </div>
     </div>
   );

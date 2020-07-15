@@ -6,14 +6,13 @@ import "./City.css";
 export default function City(props) {
   let citySearched = props.city;
   let currentCondition = props.description;
-
-  dayOfWeek = { day };
-  fullHour = { hour };
+  let day = props.dayOfWeek;
+  let hour = props.fullHour;
 
   return (
     <div className="City">
       <div className="city-name">{citySearched}</div>
-      <Time day={props.dayOfWeek} hour={props.fullHour} />
+      <Time day={day} hour={hour} />
       <div className="condition">{currentCondition}</div>
     </div>
   );
