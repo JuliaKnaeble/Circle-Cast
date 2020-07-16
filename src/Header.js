@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import City from "./City";
 import Current from "./Current";
@@ -7,11 +7,11 @@ import "./Header.css";
 
 export default function Header(props) {
   const [city, setCity] = useState(props.defaultCity);
-  const [weather, setWeather] = useState({ ready: false });
-  const [timezone, setTimezone] = useState("");
+  const [weather, setWeather] = useState({});
   const [day, setDay] = useState(null);
-  const [hour, setHour] = useState({ ready: false });
-  const [forecast, setForecast] = useState(null);
+  const [hour, setHour] = useState({});
+  const [forecast, setForecast] = useState({});
+  const [ready, setReady] = useState(false);
 
   function showTime(response) {
     setDay(response.data.day_of_week);
@@ -33,13 +33,14 @@ export default function Header(props) {
       ready: true,
       hourSet: totalHour,
     });
+    setReady(true);
   }
 
   function showForecast(response) {
     setForecast(response.data);
-    setTimezone(response.data.timezone);
+
     let timeUrl = `https://worldtimeapi.org/api/timezone/`;
-    axios.get(`${timeUrl}${timezone}`).then(showTime);
+    axios.get(`${timeUrl}${response.data.timezone}`).then(showTime);
   }
 
   function showWeather(response) {
@@ -54,6 +55,7 @@ export default function Header(props) {
       latitude: response.data.coord.lat,
       longitude: response.data.coord.lon,
     });
+
     let latitude = response.data.coord.lat;
     let longitude = response.data.coord.lon;
     let apiKeyWeather = `a785b12636ed229463fa77e0a6deb5be`;
@@ -80,7 +82,12 @@ export default function Header(props) {
     setCity(event.target.value);
   }
 
-  if (weather.ready && hour.ready) {
+  useEffect(() => {
+    search();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (ready) {
     return (
       <div>
         <div className="Header">
@@ -171,7 +178,6 @@ export default function Header(props) {
       </div>
     );
   } else {
-    search();
     return "Loading...";
   }
 }

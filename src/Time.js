@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./Time.css";
 
 export default function Time(props) {
-  const [minute, setMinute] = useState(`00`);
-
   let hour = props.hour;
 
   let date = new Date();
   let minutes = date.getMinutes();
+
   if (minutes === 0) {
     minutes = `00`;
   } else if (minutes < 10) {
     minutes = `0${minutes}`;
-  } else minutes = date.getMinutes();
-  setMinute(minute);
+  } else {
+    minutes = date.getMinutes();
+  }
 
   let days = [
     `Sunday`,
@@ -30,7 +30,7 @@ export default function Time(props) {
   return (
     <div>
       <div className="local-date">
-        {newDay} {hour}:{minute}
+        {newDay} {hour}:{minutes}
       </div>
     </div>
   );
