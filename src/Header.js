@@ -178,7 +178,7 @@ const Header = (props) => {
       </div>
     );
   } else {
-    return "Loading...";
+    return "Loading....";
   }
 };
 
