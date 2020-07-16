@@ -2,15 +2,8 @@ import React from "react";
 
 import "./Time.css";
 
-<<<<<<< HEAD
 export default function Time(props) {
   let hour = props.hour;
-=======
-const Time = (props) => {
-  const [day, setDay] = useState(`Monday`);
-  const [hour, setHour] = useState(`00`);
-  const [minute, setMinute] = useState(`00`);
->>>>>>> master
 
   let date = new Date();
   let minutes = date.getMinutes();
@@ -41,6 +34,4 @@ const Time = (props) => {
       </div>
     </div>
   );
-};
-
-export default Time;
+}
