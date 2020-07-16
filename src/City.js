@@ -3,7 +3,7 @@ import Time from "./Time";
 
 import "./City.css";
 
-export default function City(props) {
+const City = (props) => {
   let citySearched = props.city;
   let currentCondition = props.description;
   let day = props.dayOfWeek;
@@ -16,4 +16,6 @@ export default function City(props) {
       <div className="condition">{currentCondition}</div>
     </div>
   );
-}
+};
+
+export default City;

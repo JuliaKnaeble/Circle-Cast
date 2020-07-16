@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Current.css";
 
-export default function Current(props) {
+const Current = (props) => {
   let currentTemp = Math.round(props.temperature);
   let currentHumidity = Math.round(props.humidity);
   let currentWind = Math.round(props.wind);
@@ -73,4 +73,6 @@ export default function Current(props) {
       </div>
     </div>
   );
-}
+};
+
+export default Current;

@@ -1,6 +1,7 @@
 import React from "react";
 import "./ForecastPreview.css";
 
+<<<<<<< HEAD
 export default function ForecastPreview(props) {
   let days = [
     `Sun`,
@@ -18,6 +19,9 @@ export default function ForecastPreview(props) {
   ];
   let newDay = days[props.day];
 
+=======
+const ForecastPreview = (props) => {
+>>>>>>> master
   let newColor = props.max;
   if (newColor >= 44) {
     newColor = { backgroundColor: `#801109` };
@@ -80,4 +84,6 @@ export default function ForecastPreview(props) {
       </p>
     </div>
   );
-}
+};
+
+export default ForecastPreview;

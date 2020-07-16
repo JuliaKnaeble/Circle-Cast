@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Footer.css";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer>
       Made by Julia K. 2020. Code on{" "}
@@ -15,4 +15,6 @@ export default function Footer() {
       </a>
     </footer>
   );
-}
+};
+
+export default Footer;

@@ -5,7 +5,7 @@ import Current from "./Current";
 import ForecastPreview from "./ForecastPreview";
 import "./Header.css";
 
-export default function Header(props) {
+const Header = (props) => {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
   const [day, setDay] = useState(null);
@@ -180,4 +180,6 @@ export default function Header(props) {
   } else {
     return "Loading...";
   }
-}
+};
+
+export default Header;
