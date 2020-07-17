@@ -87,6 +87,30 @@ const Header = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function displayFahrenheit(event) {
+    event.preventDefault();
+    if (
+      document.querySelector(`#unitCelcius`).classList.contains("c-selected")
+    ) {
+      document
+        .querySelector(`#unitCelcius`)
+        .classList.replace("c-selected", "celcius");
+    }
+    alert("Fahrenheit");
+  }
+
+  function displayCelcius(event) {
+    event.preventDefault();
+    if (
+      document.querySelector(`#unitFahrenheit`).classList.contains("f-selected")
+    ) {
+      document
+        .querySelector(`#unitFahrenheit`)
+        .classList.replace("f-selected", "fahrenheit");
+    }
+    alert("celcius");
+  }
+
   if (ready) {
     return (
       <div>
@@ -114,8 +138,22 @@ const Header = (props) => {
           </div>
           <div>
             <a href="http://">
-              <span className="c-selected conversion-c">C</span>
-              <span className="fahrenheit conversion-f">F</span>
+              <span
+                style={}
+                id="unitCelcius"
+                className="c-selected conversion-c"
+                onClick={displayCelcius}
+              >
+                C
+              </span>
+              <span
+                style={}
+                id="unitFahrenheit"
+                className="fahrenheit conversion-f"
+                onClick={displayFahrenheit}
+              >
+                F
+              </span>
             </a>
           </div>
         </div>
