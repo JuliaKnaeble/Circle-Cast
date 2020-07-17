@@ -6,6 +6,12 @@ const Current = (props) => {
   let currentTemp = Math.round(props.temperature);
   let currentHumidity = Math.round(props.humidity);
   let currentWind = Math.round(props.wind);
+  let unitFahrenheit = props.unit;
+  if (unitFahrenheit) {
+    unitFahrenheit = `${Math.round((props.temperature * 9) / 5 + 32)}°F`;
+  } else {
+    unitFahrenheit = `${Math.round(props.temperature)}°C`;
+  }
 
   let newColor = currentTemp;
   if (newColor >= 44) {
@@ -53,7 +59,7 @@ const Current = (props) => {
   return (
     <div className="Current">
       <div className="current-temp">
-        <span className="unit">{currentTemp}°C</span>
+        <span className="unit">{unitFahrenheit}</span>
       </div>
       <div className="big-circle" style={newColor}>
         <span className="gradient-overlay">

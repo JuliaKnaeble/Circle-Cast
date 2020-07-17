@@ -11,6 +11,7 @@ const Header = (props) => {
   const [day, setDay] = useState(null);
   const [hour, setHour] = useState({});
   const [forecast, setForecast] = useState({});
+  const [fahrenheit, setFahrenheit] = useState(false);
   const [ready, setReady] = useState(false);
 
   function showTime(response) {
@@ -89,26 +90,12 @@ const Header = (props) => {
 
   function displayFahrenheit(event) {
     event.preventDefault();
-    if (
-      document.querySelector(`#unitCelcius`).classList.contains("c-selected")
-    ) {
-      document
-        .querySelector(`#unitCelcius`)
-        .classList.replace("c-selected", "celcius");
-    }
-    alert("Fahrenheit");
+    setFahrenheit(true);
   }
 
   function displayCelcius(event) {
     event.preventDefault();
-    if (
-      document.querySelector(`#unitFahrenheit`).classList.contains("f-selected")
-    ) {
-      document
-        .querySelector(`#unitFahrenheit`)
-        .classList.replace("f-selected", "fahrenheit");
-    }
-    alert("celcius");
+    setFahrenheit(false);
   }
 
   if (ready) {
@@ -139,7 +126,6 @@ const Header = (props) => {
           <div>
             <a href="http://">
               <span
-                style={}
                 id="unitCelcius"
                 className="c-selected conversion-c"
                 onClick={displayCelcius}
@@ -147,7 +133,6 @@ const Header = (props) => {
                 C
               </span>
               <span
-                style={}
                 id="unitFahrenheit"
                 className="fahrenheit conversion-f"
                 onClick={displayFahrenheit}
@@ -168,6 +153,7 @@ const Header = (props) => {
           humidity={weather.humid}
           wind={weather.wind}
           icon={weather.icon}
+          unit={fahrenheit}
         />
         <div className="forecast-flax-wrapper forecast-scroll">
           <ForecastPreview
@@ -175,42 +161,49 @@ const Header = (props) => {
             min={forecast.daily[0].temp.min}
             icon={forecast.daily[0].weather[0].icon}
             day={day}
+            unit={fahrenheit}
           />
           <ForecastPreview
             max={forecast.daily[1].temp.max}
             min={forecast.daily[1].temp.min}
             icon={forecast.daily[1].weather[0].icon}
             day={day + 1}
+            unit={fahrenheit}
           />
           <ForecastPreview
             max={forecast.daily[2].temp.max}
             min={forecast.daily[2].temp.min}
             icon={forecast.daily[2].weather[0].icon}
             day={day + 2}
+            unit={fahrenheit}
           />
           <ForecastPreview
             max={forecast.daily[3].temp.max}
             min={forecast.daily[3].temp.min}
             icon={forecast.daily[3].weather[0].icon}
             day={day + 3}
+            unit={fahrenheit}
           />
           <ForecastPreview
             max={forecast.daily[4].temp.max}
             min={forecast.daily[4].temp.min}
             icon={forecast.daily[4].weather[0].icon}
             day={day + 4}
+            unit={fahrenheit}
           />
           <ForecastPreview
             max={forecast.daily[5].temp.max}
             min={forecast.daily[5].temp.min}
             icon={forecast.daily[5].weather[0].icon}
             day={day + 5}
+            unit={fahrenheit}
           />
           <ForecastPreview
             max={forecast.daily[6].temp.max}
             min={forecast.daily[6].temp.min}
             icon={forecast.daily[6].weather[0].icon}
             day={day + 6}
+            unit={fahrenheit}
           />
         </div>
       </div>

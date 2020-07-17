@@ -2,6 +2,19 @@ import React from "react";
 import "./ForecastPreview.css";
 
 export default function ForecastPreview(props) {
+  let unitFahrenheitMax = props.unit;
+  if (unitFahrenheitMax) {
+    unitFahrenheitMax = `${Math.round((props.max * 9) / 5 + 32)}°F`;
+  } else {
+    unitFahrenheitMax = `${Math.round(props.max)}°C`;
+  }
+  let unitFahrenheitMin = props.unit;
+  if (unitFahrenheitMin) {
+    unitFahrenheitMin = `${Math.round((props.min * 9) / 5 + 32)}°F`;
+  } else {
+    unitFahrenheitMin = `${Math.round(props.min)}°C`;
+  }
+
   let days = [
     `Sun`,
     `Mon`,
@@ -74,9 +87,9 @@ export default function ForecastPreview(props) {
       </div>
       <p className="day-future">{newDay}</p>
       <p className="temp-future">
-        <span className="unit">{Math.round(props.max)}C</span> |{" "}
+        <span className="unit">{unitFahrenheitMax}</span> |{" "}
         <span className="future-low-temp" />
-        <span className="future-low-temp unit">{Math.round(props.min)}°C</span>
+        <span className="future-low-temp unit">{unitFahrenheitMin}</span>
       </p>
     </div>
   );
