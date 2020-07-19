@@ -13,7 +13,7 @@ const Header = (props) => {
   const [forecast, setForecast] = useState({});
   const [fahrenheit, setFahrenheit] = useState(false);
   const [fSelected, setFSelected] = useState({});
-  const [cSelected, setCSelected] = useState({});
+  const [cSelected, setCSelected] = useState(props.unitC);
   const [ready, setReady] = useState(false);
 
   function showTime(response) {
