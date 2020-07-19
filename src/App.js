@@ -7,7 +7,15 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Header defaultCity="Tel Aviv" />
+      <Header
+        defaultCity="Tel Aviv"
+        unitC={{
+          color: `#fcfeff`,
+          backgroundColor: `#465866`,
+          borderRadius: `50%`,
+          cursor: `default`,
+        }}
+      />
       <Footer />
     </div>
   );
