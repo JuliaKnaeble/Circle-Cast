@@ -74,6 +74,7 @@ const Header = (props) => {
     let apiKey = `a785b12636ed229463fa77e0a6deb5be`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(showWeather);
+    setCity("");
   }
 
   function handleSubmit(event) {
@@ -136,6 +137,7 @@ const Header = (props) => {
                 spellCheck="false"
                 autoFocus
                 onChange={handleChange}
+                value={city}
               />
             </form>
           </div>
