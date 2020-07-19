@@ -84,25 +84,12 @@ button:focus {
 }
 
 .conversion-f {
-  padding-left: 11px;
+  margin-left: 11px;
   right: 25px;
 }
 
 .conversion-c {
-  right: 80px;
-}
-
-.f-selected,
-.c-selected {
-  color: #fcfeff;
-  background-color: #465866;
-  border-radius: 50%;
-  cursor: default;
-}
-
-.celcius,
-.fahrenheit {
-  color: #465866;
+  right: 75px;
 }
 
 @media (max-width: 1000px) {

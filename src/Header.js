@@ -12,6 +12,8 @@ const Header = (props) => {
   const [hour, setHour] = useState({});
   const [forecast, setForecast] = useState({});
   const [fahrenheit, setFahrenheit] = useState(false);
+  const [fSelected, setFSelected] = useState({});
+  const [cSelected, setCSelected] = useState({});
   const [ready, setReady] = useState(false);
 
   function showTime(response) {
@@ -91,11 +93,25 @@ const Header = (props) => {
   function displayFahrenheit(event) {
     event.preventDefault();
     setFahrenheit(true);
+    setFSelected({
+      color: `#fcfeff`,
+      backgroundColor: `#465866`,
+      borderRadius: `50%`,
+      cursor: `default`,
+    });
+    setCSelected({});
   }
 
   function displayCelcius(event) {
     event.preventDefault();
     setFahrenheit(false);
+    setCSelected({
+      color: `#fcfeff`,
+      backgroundColor: `#465866`,
+      borderRadius: `50%`,
+      cursor: `default`,
+    });
+    setFSelected({});
   }
 
   if (ready) {
@@ -126,16 +142,16 @@ const Header = (props) => {
           <div>
             <a href="http://">
               <span
-                id="unitCelcius"
-                className="c-selected conversion-c"
+                className="conversion-c"
                 onClick={displayCelcius}
+                style={cSelected}
               >
                 C
               </span>
               <span
-                id="unitFahrenheit"
-                className="fahrenheit conversion-f"
+                className="conversion-f"
                 onClick={displayFahrenheit}
+                style={fSelected}
               >
                 F
               </span>
