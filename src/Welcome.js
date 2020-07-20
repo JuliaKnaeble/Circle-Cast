@@ -1,10 +1,11 @@
 import React from "react";
+import "./Welcome.css";
 
 const Welcome = () => {
   return (
-    <div class="wrapper-welcome">
-      <div class="welcome-circle align-welcome"></div>
-      <div class="welcome-text align-welcome">
+    <div className="wrapper-welcome">
+      <div className="welcome-circle align-welcome"></div>
+      <div className="welcome-text align-welcome">
         <p>What's the weather like in...</p>
       </div>
     </div>

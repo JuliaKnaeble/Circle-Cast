@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import axios from "axios";
+
+import Welcome from "./Welcome";
 import City from "./City";
 import Current from "./Current";
 import ForecastPreview from "./ForecastPreview";
+
 import "./Header.css";
 
 const Header = (props) => {
@@ -117,114 +122,135 @@ const Header = (props) => {
 
   if (ready) {
     return (
-      <div>
-        <div className="Header">
-          <div className="page-name">
-            <a href="index.html">
-              <strong>Circle</strong>Cast
-            </a>
+      <Router>
+        <div>
+          <div className="Header">
+            <div className="page-name">
+              <a href="index.html">
+                <strong>Circle</strong>Cast
+              </a>
+            </div>
+            <div className="search-form">
+              <form onSubmit={handleSubmit}>
+                <button>
+                  <i className="fas fa-search search-icon" />
+                </button>
+                <input
+                  className="text-input"
+                  type="text"
+                  placeholder="Search for a city"
+                  autoComplete="off"
+                  spellCheck="false"
+                  autoFocus
+                  onChange={handleChange}
+                  value={city}
+                />
+              </form>
+            </div>
+            <div>
+              <a href="http://">
+                <span
+                  className="conversion-c"
+                  onClick={displayCelcius}
+                  style={cSelected}
+                >
+                  C
+                </span>
+                <span
+                  className="conversion-f"
+                  onClick={displayFahrenheit}
+                  style={fSelected}
+                >
+                  F
+                </span>
+              </a>
+            </div>
           </div>
-          <div className="search-form">
-            <form onSubmit={handleSubmit}>
-              <button>
-                <i className="fas fa-search search-icon" />
-              </button>
-              <input
-                className="text-input"
-                type="text"
-                placeholder="Search for a city"
-                autoComplete="off"
-                spellCheck="false"
-                autoFocus
-                onChange={handleChange}
-                value={city}
-              />
-            </form>
-          </div>
-          <div>
-            <a href="http://">
-              <span
-                className="conversion-c"
-                onClick={displayCelcius}
-                style={cSelected}
-              >
-                C
-              </span>
-              <span
-                className="conversion-f"
-                onClick={displayFahrenheit}
-                style={fSelected}
-              >
-                F
-              </span>
-            </a>
+          <Route path="/" component={Welcome} />
+          <Route
+            path="/forecast"
+            component={City}
+            city={weather.city}
+            description={weather.description}
+            dayOfWeek={day}
+            fullHour={hour.hourSet}
+          />
+          <Route
+            path="/forecast"
+            component={Current}
+            temperature={weather.temp}
+            humidity={weather.humid}
+            wind={weather.wind}
+            icon={weather.icon}
+            unit={fahrenheit}
+          />
+          <div className="forecast-flax-wrapper forecast-scroll">
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[0].temp.max}
+              min={forecast.daily[0].temp.min}
+              icon={forecast.daily[0].weather[0].icon}
+              day={day}
+              unit={fahrenheit}
+            />
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[1].temp.max}
+              min={forecast.daily[1].temp.min}
+              icon={forecast.daily[1].weather[0].icon}
+              day={day + 1}
+              unit={fahrenheit}
+            />
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[2].temp.max}
+              min={forecast.daily[2].temp.min}
+              icon={forecast.daily[2].weather[0].icon}
+              day={day + 2}
+              unit={fahrenheit}
+            />
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[3].temp.max}
+              min={forecast.daily[3].temp.min}
+              icon={forecast.daily[3].weather[0].icon}
+              day={day + 3}
+              unit={fahrenheit}
+            />
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[4].temp.max}
+              min={forecast.daily[4].temp.min}
+              icon={forecast.daily[4].weather[0].icon}
+              day={day + 4}
+              unit={fahrenheit}
+            />
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[5].temp.max}
+              min={forecast.daily[5].temp.min}
+              icon={forecast.daily[5].weather[0].icon}
+              day={day + 5}
+              unit={fahrenheit}
+            />
+            <Route
+              path="/forecast"
+              component={ForecastPreview}
+              max={forecast.daily[6].temp.max}
+              min={forecast.daily[6].temp.min}
+              icon={forecast.daily[6].weather[0].icon}
+              day={day + 6}
+              unit={fahrenheit}
+            />
           </div>
         </div>
-        <City
-          city={weather.city}
-          description={weather.description}
-          dayOfWeek={day}
-          fullHour={hour.hourSet}
-        />
-        <Current
-          temperature={weather.temp}
-          humidity={weather.humid}
-          wind={weather.wind}
-          icon={weather.icon}
-          unit={fahrenheit}
-        />
-        <div className="forecast-flax-wrapper forecast-scroll">
-          <ForecastPreview
-            max={forecast.daily[0].temp.max}
-            min={forecast.daily[0].temp.min}
-            icon={forecast.daily[0].weather[0].icon}
-            day={day}
-            unit={fahrenheit}
-          />
-          <ForecastPreview
-            max={forecast.daily[1].temp.max}
-            min={forecast.daily[1].temp.min}
-            icon={forecast.daily[1].weather[0].icon}
-            day={day + 1}
-            unit={fahrenheit}
-          />
-          <ForecastPreview
-            max={forecast.daily[2].temp.max}
-            min={forecast.daily[2].temp.min}
-            icon={forecast.daily[2].weather[0].icon}
-            day={day + 2}
-            unit={fahrenheit}
-          />
-          <ForecastPreview
-            max={forecast.daily[3].temp.max}
-            min={forecast.daily[3].temp.min}
-            icon={forecast.daily[3].weather[0].icon}
-            day={day + 3}
-            unit={fahrenheit}
-          />
-          <ForecastPreview
-            max={forecast.daily[4].temp.max}
-            min={forecast.daily[4].temp.min}
-            icon={forecast.daily[4].weather[0].icon}
-            day={day + 4}
-            unit={fahrenheit}
-          />
-          <ForecastPreview
-            max={forecast.daily[5].temp.max}
-            min={forecast.daily[5].temp.min}
-            icon={forecast.daily[5].weather[0].icon}
-            day={day + 5}
-            unit={fahrenheit}
-          />
-          <ForecastPreview
-            max={forecast.daily[6].temp.max}
-            min={forecast.daily[6].temp.min}
-            icon={forecast.daily[6].weather[0].icon}
-            day={day + 6}
-            unit={fahrenheit}
-          />
-        </div>
-      </div>
+      </Router>
     );
   } else {
     return "Loading....";
