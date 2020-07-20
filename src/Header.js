@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 import axios from "axios";
 
@@ -302,7 +303,17 @@ const Header = (props) => {
       </Router>
     );
   } else {
-    return "Loading....";
+    return (
+      <div className="loader">
+        <Loader
+          type="ThreeDots"
+          color="#94aec2"
+          height={250}
+          width={250}
+          timeout={3000} //3 secs
+        />
+      </div>
+    );
   }
 };
 

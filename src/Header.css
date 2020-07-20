@@ -92,6 +92,13 @@ button:focus {
   right: 75px;
 }
 
+.loader {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 1000px) {
   .page-name {
     font-size: 1.5rem;
