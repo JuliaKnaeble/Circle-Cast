@@ -166,87 +166,132 @@ const Header = (props) => {
               </a>
             </div>
           </div>
-          <Route path="/" component={Welcome} />
+          <Route path="/" exact component={Welcome} />
           <Route
             path="/forecast"
-            component={City}
-            city={weather.city}
-            description={weather.description}
-            dayOfWeek={day}
-            fullHour={hour.hourSet}
+            exact
+            render={(props) => (
+              <City
+                {...props}
+                city={weather.city}
+                description={weather.description}
+                dayOfWeek={day}
+                fullHour={hour.hourSet}
+              />
+            )}
           />
           <Route
             path="/forecast"
-            component={Current}
-            temperature={weather.temp}
-            humidity={weather.humid}
-            wind={weather.wind}
-            icon={weather.icon}
-            unit={fahrenheit}
+            exact
+            render={(props) => (
+              <Current
+                {...props}
+                temperature={weather.temp}
+                humidity={weather.humid}
+                wind={weather.wind}
+                icon={weather.icon}
+                unit={fahrenheit}
+              />
+            )}
           />
           <div className="forecast-flax-wrapper forecast-scroll">
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[0].temp.max}
-              min={forecast.daily[0].temp.min}
-              icon={forecast.daily[0].weather[0].icon}
-              day={day}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[0].temp.max}
+                  min={forecast.daily[0].temp.min}
+                  icon={forecast.daily[0].weather[0].icon}
+                  day={day}
+                  unit={fahrenheit}
+                />
+              )}
             />
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[1].temp.max}
-              min={forecast.daily[1].temp.min}
-              icon={forecast.daily[1].weather[0].icon}
-              day={day + 1}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[1].temp.max}
+                  min={forecast.daily[1].temp.min}
+                  icon={forecast.daily[1].weather[0].icon}
+                  day={day + 1}
+                  unit={fahrenheit}
+                />
+              )}
             />
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[2].temp.max}
-              min={forecast.daily[2].temp.min}
-              icon={forecast.daily[2].weather[0].icon}
-              day={day + 2}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[2].temp.max}
+                  min={forecast.daily[2].temp.min}
+                  icon={forecast.daily[2].weather[0].icon}
+                  day={day + 2}
+                  unit={fahrenheit}
+                />
+              )}
             />
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[3].temp.max}
-              min={forecast.daily[3].temp.min}
-              icon={forecast.daily[3].weather[0].icon}
-              day={day + 3}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[3].temp.max}
+                  min={forecast.daily[3].temp.min}
+                  icon={forecast.daily[3].weather[0].icon}
+                  day={day + 3}
+                  unit={fahrenheit}
+                />
+              )}
             />
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[4].temp.max}
-              min={forecast.daily[4].temp.min}
-              icon={forecast.daily[4].weather[0].icon}
-              day={day + 4}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[4].temp.max}
+                  min={forecast.daily[4].temp.min}
+                  icon={forecast.daily[4].weather[0].icon}
+                  day={day + 4}
+                  unit={fahrenheit}
+                />
+              )}
             />
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[5].temp.max}
-              min={forecast.daily[5].temp.min}
-              icon={forecast.daily[5].weather[0].icon}
-              day={day + 5}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[5].temp.max}
+                  min={forecast.daily[5].temp.min}
+                  icon={forecast.daily[5].weather[0].icon}
+                  day={day + 5}
+                  unit={fahrenheit}
+                />
+              )}
             />
             <Route
               path="/forecast"
-              component={ForecastPreview}
-              max={forecast.daily[6].temp.max}
-              min={forecast.daily[6].temp.min}
-              icon={forecast.daily[6].weather[0].icon}
-              day={day + 6}
-              unit={fahrenheit}
+              exact
+              render={(props) => (
+                <ForecastPreview
+                  {...props}
+                  max={forecast.daily[6].temp.max}
+                  min={forecast.daily[6].temp.min}
+                  icon={forecast.daily[6].weather[0].icon}
+                  day={day + 6}
+                  unit={fahrenheit}
+                />
+              )}
             />
           </div>
         </div>
