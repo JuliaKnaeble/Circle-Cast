@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -11,6 +11,7 @@ import ForecastPreview from "./ForecastPreview";
 import "./Header.css";
 
 const Header = (props) => {
+  const [router, setRouter] = useState(props.router);
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
   const [day, setDay] = useState(null);
@@ -84,6 +85,7 @@ const Header = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setRouter("/forecast");
     search();
   }
 
@@ -135,16 +137,18 @@ const Header = (props) => {
                 <button>
                   <i className="fas fa-search search-icon" />
                 </button>
-                <input
-                  className="text-input"
-                  type="text"
-                  placeholder="Search for a city"
-                  autoComplete="off"
-                  spellCheck="false"
-                  autoFocus
-                  onChange={handleChange}
-                  value={city}
-                />
+                <Link to={router}>
+                  <input
+                    className="text-input"
+                    type="text"
+                    placeholder="Search for a city"
+                    autoComplete="off"
+                    spellCheck="false"
+                    autoFocus
+                    onChange={handleChange}
+                    value={city}
+                  />
+                </Link>
               </form>
             </div>
             <div>
