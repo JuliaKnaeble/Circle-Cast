@@ -42,19 +42,21 @@
 
   .welcome-text {
     font-size: 2rem;
+    height: 122px;
   }
 }
 
 @media (max-width: 675px) {
   .wrapper-welcome {
-    top: 10em;
+    top: 12em;
   }
   .welcome-circle {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
   }
 
   .welcome-text {
-    font-size: 1.25rem;
+    font-size: 18px;
+    height: 102px;
   }
 }

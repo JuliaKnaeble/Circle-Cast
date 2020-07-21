@@ -308,8 +308,8 @@ const Header = (props) => {
         <Loader
           type="ThreeDots"
           color="#94aec2"
-          height={250}
-          width={250}
+          height={100}
+          width={150}
           timeout={3000} //3 secs
         />
       </div>
