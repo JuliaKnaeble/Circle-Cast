@@ -144,6 +144,7 @@ const Header = (props) => {
                 placeholder="Search for a city"
                 autoComplete="off"
                 spellCheck="false"
+                autoFocus
                 onChange={handleChange}
                 value={city}
               />
