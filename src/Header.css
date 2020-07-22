@@ -60,6 +60,7 @@ button {
   background-color: transparent;
   padding: 8px;
   border: none;
+  cursor: pointer;
 }
 button:active,
 button:focus {
@@ -90,6 +91,13 @@ button:focus {
 
 .conversion-c {
   right: 75px;
+}
+
+.loader {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1000px) {
