@@ -8,7 +8,6 @@ function App() {
   return (
     <div className="App">
       <Header
-        router="/"
         defaultCity="Tel Aviv"
         unitC={{
           color: `#fcfeff`,
