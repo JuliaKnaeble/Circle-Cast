@@ -81,12 +81,12 @@ const Header = (props) => {
     let apiKey = `a785b12636ed229463fa77e0a6deb5be`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(showWeather);
-    //setCity("");
+    setCity("");
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setReady(false);
+    //setReady(false);
     history.push("/forecast");
     search();
   }
