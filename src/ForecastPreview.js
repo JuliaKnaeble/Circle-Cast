@@ -28,10 +28,11 @@ export default function ForecastPreview(props) {
     `Tue`,
     `Wed`,
     `Thu`,
+    `Fri`,
   ];
   let newDay = days[props.day];
 
-  let newColor = props.max;
+  let newColor = Math.round(props.max);
   if (newColor >= 44) {
     newColor = { backgroundColor: `#801109` };
   } else if (newColor >= 40) {
