@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, useHistory, Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
+import hideVirtualKeyboard from "hide-virtual-keyboard";
 
 import axios from "axios";
 
@@ -48,7 +49,6 @@ const Header = (props) => {
 
   function showForecast(response) {
     setForecast(response.data);
-
     let timeUrl = `https://worldtimeapi.org/api/timezone/`;
     axios.get(`${timeUrl}${response.data.timezone}`).then(showTime);
   }
@@ -75,6 +75,7 @@ const Header = (props) => {
         `${weatherForecastUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKeyWeather}&units=metric`
       )
       .then(showForecast);
+    hideVirtualKeyboard();
   }
 
   function search() {
