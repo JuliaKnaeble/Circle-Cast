@@ -44,13 +44,22 @@ const Header = (props) => {
       ready: true,
       hourSet: totalHour,
     });
-    setReady(true);
   }
 
   function showForecast(response) {
     setForecast(response.data);
     let timeUrl = `https://worldtimeapi.org/api/timezone/`;
-    axios.get(`${timeUrl}${response.data.timezone}`).then(showTime);
+    axios
+      .get(`${timeUrl}${response.data.timezone}`)
+      .then(showTime)
+      .catch(
+        () =>
+          setHour({
+            ready: true,
+            hourSet: "00",
+          }) & setDay(0)
+      )
+      .then(() => setReady(true));
   }
 
   function showWeather(response) {
