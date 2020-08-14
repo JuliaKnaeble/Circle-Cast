@@ -57,7 +57,7 @@ ul {
 
 @media (min-width: 1850px) {
   .Current {
-    height: 330px;
+    height: 280px;
   }
 
   .current-temp {
@@ -78,14 +78,14 @@ ul {
 
   .big-circle,
   .gradient-overlay {
-    height: 330px;
-    width: 330px;
+    height: 280px;
+    width: 280px;
   }
   .condition-icon {
     top: 185px;
     left: 150px;
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
   }
 }
 
