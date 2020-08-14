@@ -65,6 +65,30 @@
   height: 40px;
 }
 
+@media (min-width: 1850px) {
+  .forecast-flax-wrapper {
+    margin-top: 120px;
+  }
+
+  .small-circle {
+    width: 180px;
+    height: 180px;
+  }
+  .day-future {
+    font-size: 2rem;
+  }
+
+  .temp-future {
+    font-size: 2rem;
+  }
+  .condition-icon-small {
+    top: 107px;
+    left: 88px;
+    width: 90px;
+    height: 90px;
+  }
+}
+
 @media (max-width: 1000px) {
   .small-circle {
     width: 90px;

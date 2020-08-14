@@ -30,6 +30,24 @@
   height: 78px;
 }
 
+@media (min-width: 1850px) {
+  .city-name {
+    font-size: 4.25rem;
+    margin-top: 80px;
+    height: 90px;
+  }
+
+  .condition,
+  .local-date {
+    font-size: 1.75rem;
+    height: 35px;
+  }
+
+  .condition {
+    margin-bottom: 40px;
+  }
+}
+
 @media (max-width: 675px) {
   .city-name {
     font-size: 2rem;
