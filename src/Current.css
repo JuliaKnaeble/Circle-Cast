@@ -55,40 +55,6 @@ ul {
   height: 100px;
 }
 
-@media (min-width: 1850px) {
-  .Current {
-    height: 280px;
-  }
-
-  .current-temp {
-    font-size: 3rem;
-    width: 250px;
-    text-align: right;
-    padding: 0;
-    margin-right: 59px;
-  }
-
-  ul {
-    font-size: 2rem;
-    width: 250px;
-    text-align: left;
-    padding: 0;
-    margin-left: 59px;
-  }
-
-  .big-circle,
-  .gradient-overlay {
-    height: 280px;
-    width: 280px;
-  }
-  .condition-icon {
-    top: 185px;
-    left: 150px;
-    width: 120px;
-    height: 120px;
-  }
-}
-
 @media (max-width: 675px) {
   .current-weather {
     height: 140px;
