@@ -9,3 +9,4 @@ CircleCast is a neat little weather web app with clean UI that is changing color
 - Ajax - Axios
 - React Routing
 - Css
+- Open Weather Api
